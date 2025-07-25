@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat Room</title>
+  <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+  <script src="/static/js/crypto.js"></script>
+  <script src="/static/js/chat.js"></script>
+</head>
+<body>
+  <h2>Welcome, {{ username }}</h2>
+  <select id="roomSelect" onchange="switchRoom(this.value)">
+  {% for room in rooms %}
+    <option value="{{ room }}">{{ room }}</option>
+  {% endfor %}
+  </select>
+  <div id="chatBox" style="height: 300px; border: 1px solid #ccc; overflow-y: scroll;"></div>
+  <input id="messageInput" placeholder="Type your message...">
+  <button onclick="sendMessage()">Send</button>
+</body>
+</html>
